@@ -8,7 +8,7 @@
 	import Feedback from '$lib/components/Feedback.svelte';
 
 	export let data;
-	
+
 	interface QuizFolder {
 		folder_id: number;
 		name: string;
@@ -41,9 +41,7 @@
 </script>
 
 <Feedback {supabase} bind:show={showFeedback} on:openChange={(e) => (showFeedback = e.detail)} />
-<main
-	class="flex flex-col justify-start items-start min-h-screen w-screen bg-gray-100 p-5 space-y-5"
->
+<main class="flex flex-col justify-start items-start min-h-screen w-screen p-5 space-y-5">
 	<header class="flex items-start justify-start w-full gap-4">
 		<h3>UWA x Quizzes</h3>
 		<Button variant="link" on:click={() => (showFeedback = true)}>Give Feedback</Button>
@@ -60,6 +58,11 @@
 			> and we'll see what we can do!
 		</Alert.Description>
 	</Alert.Root>
+	<!-- <h3 class="font-semibold">Demos</h3>
+	<section class="w-full flex flex-row space-x-2 items-center justify-start">
+		<Button variant="outline" data-sveltekit-reload href="/demo/business">Business Demo</Button>
+	</section> -->
+	<h3 class="font-semibold">Quizzes</h3>
 	<section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 w-full">
 		{#if quizFolders.length === 0}
 			<Skeleton class="w-full max-w-sm h-48" />

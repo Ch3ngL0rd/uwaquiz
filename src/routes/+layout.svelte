@@ -1,7 +1,7 @@
 <!-- src/routes/+layout.svelte -->
 <script lang="ts">
 	import '../app.postcss';
-	import "../app.css"
+	import '../app.css';
 	import { invalidate } from '$app/navigation';
 	import { onMount } from 'svelte';
 
@@ -21,4 +21,8 @@
 	});
 </script>
 
+<svelte:head>
+	<title>UWA x Quizzes</title>
+	<meta name="description" content="UWA x Quizzes" />
+</svelte:head>
 <slot />

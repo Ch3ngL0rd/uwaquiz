@@ -37,6 +37,7 @@
 			supabase
 				.from('quizzes')
 				.select('*')
+				.order('created_at', { ascending: true })
 				.eq('folder_id', folder_id)
 				.then(({ data, error }) => {
 					if (error) {
@@ -91,43 +92,40 @@
 	}
 </script>
 
-<main
-	class="flex flex-col justify-start items-start min-h-screen w-screen bg-gray-100 p-5 space-y-5"
->
-	<header class="flex items-start justify-start w-full gap-4">
+<main class="flex flex-col justify-start items-start min-h-full w-full p-5 space-y-5">
+	<header class="flex items-start justify-start w-full gap-4 border-b pb-5">
 		<h3>UWA x Quizzes</h3>
+		<Button variant="link" href={'/'}>Home</Button>
 	</header>
 
 	<!-- TABLE OF QUIZZES -->
-	<section class="w-full bg-white rounded-lg shadow-lg p-5">
-		<section class="w-full flex flex-col space-y-2 pb-5">
-			{#if folder}
-				<h3>{folder.name}</h3>
-				<p>{folder.description}</p>
-			{:else}
-				<Skeleton class="w-full h-16" />
-			{/if}
-		</section>
-		<Table.Root class="w-full">
-			<Table.Caption>Quizzes</Table.Caption>
-			<Table.Header>
-				<Table.Row>
-					<Table.Head class="w-1/3">Quiz</Table.Head>
-					<Table.Head class="w-1/3">Created</Table.Head>
-					<Table.Head class="w-1/3">Actions</Table.Head>
-				</Table.Row>
-			</Table.Header>
-			<Table.Body>
-				{#each quizzes as quiz}
-					<Table.Row>
-						<Table.Cell class="font-semibold">{quiz.title}</Table.Cell>
-						<Table.Cell>{timeSince(new Date(quiz.created_at))}</Table.Cell>
-						<Table.Cell>
-							<Button href={`/quiz/${quiz.quiz_id}`}>Recap</Button>
-						</Table.Cell>
-					</Table.Row>
-				{/each}
-			</Table.Body>
-		</Table.Root>
+	<section class="w-full flex flex-col space-y-2">
+		{#if folder}
+			<h3>{folder.name}</h3>
+			<p>{folder.description}</p>
+		{:else}
+			<Skeleton class="w-full h-16" />
+		{/if}
 	</section>
+	<Table.Root class="w-full">
+		<Table.Caption>Quizzes</Table.Caption>
+		<Table.Header>
+			<Table.Row>
+				<Table.Head class="w-1/3">Quiz</Table.Head>
+				<Table.Head class="w-1/3">Created</Table.Head>
+				<Table.Head class="w-1/3">Actions</Table.Head>
+			</Table.Row>
+		</Table.Header>
+		<Table.Body>
+			{#each quizzes as quiz}
+				<Table.Row>
+					<Table.Cell class="font-semibold">{quiz.title}</Table.Cell>
+					<Table.Cell>{timeSince(new Date(quiz.created_at))}</Table.Cell>
+					<Table.Cell>
+						<Button href={`/quiz/${quiz.quiz_id}/1/question`}>Recap</Button>
+					</Table.Cell>
+				</Table.Row>
+			{/each}
+		</Table.Body>
+	</Table.Root>
 </main>
