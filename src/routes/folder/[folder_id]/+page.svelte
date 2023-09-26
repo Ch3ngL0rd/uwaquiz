@@ -18,6 +18,7 @@
 		title: string;
 		created_at: string;
 		folder_id: number;
+		question_count: number;
 	}
 
 	interface QuizFolder {
@@ -35,7 +36,7 @@
 	onMount(async () => {
 		const fetchQuizzes = async () => {
 			supabase
-				.from('quizzes')
+				.from('quiz_question_count')
 				.select('*')
 				.order('created_at', { ascending: true })
 				.eq('folder_id', folder_id)
@@ -46,6 +47,16 @@
 						quizzes = data;
 					}
 				});
+		};
+
+		const fetchDone = async () => {
+			console.log(session?.user.id);
+			
+			let { data, error } = await supabase.rpc('get_attempted_quizzes', {
+				folder_id,
+				user_id : session?.user.id
+			});
+			console.log(data, error);
 		};
 
 		const fetchFolder = async (folder_id: number) => {
@@ -65,6 +76,7 @@
 
 		fetchFolder(folder_id);
 		fetchQuizzes();
+		fetchDone();
 	});
 
 	function timeSince(date: Date) {
@@ -112,7 +124,7 @@
 		<Table.Header>
 			<Table.Row>
 				<Table.Head class="w-1/3">Quiz</Table.Head>
-				<Table.Head class="w-1/3">Created</Table.Head>
+				<Table.Head class="w-1/3">Info</Table.Head>
 				<Table.Head class="w-1/3">Actions</Table.Head>
 			</Table.Row>
 		</Table.Header>
@@ -120,7 +132,7 @@
 			{#each quizzes as quiz}
 				<Table.Row>
 					<Table.Cell class="font-semibold">{quiz.title}</Table.Cell>
-					<Table.Cell>{timeSince(new Date(quiz.created_at))}</Table.Cell>
+					<Table.Cell>{quiz.question_count} questions</Table.Cell>
 					<Table.Cell>
 						<Button href={`/quiz/${quiz.quiz_id}/1/question`}>Recap</Button>
 					</Table.Cell>
