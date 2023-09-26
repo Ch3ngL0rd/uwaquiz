@@ -60,7 +60,7 @@
 	</Alert.Root>
 	<h3 class="font-semibold">Demos</h3>
 	<section class="w-full flex flex-row space-x-2 items-center justify-start">
-		<Button variant="outline" data-sveltekit-reload href="/quiz/22/1/question">Demo Quiz</Button>
+		<Button data-sveltekit-reload href="/quiz/22/1/question">Demo Quiz</Button>
 	</section>
 	<h3 class="font-semibold">Quizzes</h3>
 	<section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 w-full">
