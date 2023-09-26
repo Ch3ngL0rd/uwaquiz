@@ -20,7 +20,7 @@ export const handle: Handle = async ({ event, resolve }) => {
         return session
     }
 
-    if (event.url.pathname.startsWith('/quizzes') || event.url.pathname.startsWith('/folder')) {
+    if (event.url.pathname.startsWith('/quiz') || event.url.pathname.startsWith('/folder')) {
         const session = await event.locals.getSession()
         if (!session) {
             throw redirect(303, '/login')
