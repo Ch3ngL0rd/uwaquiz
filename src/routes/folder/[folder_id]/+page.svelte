@@ -113,7 +113,7 @@
 	<!-- TABLE OF QUIZZES -->
 	<section class="w-full flex flex-col space-y-2">
 		{#if folder}
-			<h3>{folder.name}</h3>
+			<h3>{@html folder.name}</h3>
 			<p>{folder.description}</p>
 		{:else}
 			<Skeleton class="w-full h-16" />
