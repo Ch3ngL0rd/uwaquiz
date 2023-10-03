@@ -31,6 +31,8 @@
 					if (error) {
 						console.log(error);
 					} else {
+						// sort folders by alphabetical order - folder.name
+						folders.sort((a, b) => a.name.localeCompare(b.name));
 						quizFolders = folders;
 					}
 				});
@@ -50,12 +52,11 @@
 	</header>
 	<Alert.Root>
 		<Rocket class="h-4 w-4" />
-		<Alert.Title>Welcome!</Alert.Title>
-		<Alert.Description>
-			Explore some quizzes created by other students at UWA to revise for your exams! If you'd like
-			quizzes on a specific unit, email us at <Button
+		<Alert.Title class="text-2xl">Welcome!</Alert.Title>
+		<Alert.Description class="text-lg">
+			If you'd like quizzes on a specific unit, email us at <Button
 				variant="link"
-				class="font-bold p-0 m-0 h-min"
+				class="font-bold p-0 m-0 h-min text-lg"
 				href="mailto:help@uwaquiz.com">help@uwaquiz.com</Button
 			> and we'll see what we can do!
 		</Alert.Description>
