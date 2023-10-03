@@ -77,7 +77,7 @@
                  flex flex-col justify-between shadow-sm hover:shadow-lg transition duration-300 ease-in-out hover:scale-[1.01]"
 			>
 				<Card.Header>
-					<Card.Title class="text-xl font-semibold tracking-tight">{folder.name}</Card.Title>
+					<Card.Title class="text-xl font-semibold tracking-tight">{@html folder.name}</Card.Title>
 					<Card.Description>{folder.description}</Card.Description>
 				</Card.Header>
 				<Card.Footer>
