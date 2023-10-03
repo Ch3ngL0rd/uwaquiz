@@ -45,7 +45,7 @@
 	<header class="flex items-start justify-between w-full gap-4">
 		<h3>UWA x Quizzes</h3>
 		<Button on:click={() => (showFeedback = true)} class="bg-blue-500 hover:bg-blue-600"
-			>Give Feedback</Button
+			>Request a Quiz</Button
 		>
 	</header>
 	<Alert.Root>
