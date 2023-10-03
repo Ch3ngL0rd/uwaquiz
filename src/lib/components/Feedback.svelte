@@ -32,9 +32,8 @@
 	<Dialog.Content>
 		<Dialog.Header class="flex flex-col justify-start items-start space-y-4">
 			<Dialog.Title>Feedback</Dialog.Title>
-			<p class="text-sm text-gray-500">
-				We'd love to hear your feedback! Please let us know what you think about UWA x Quizzes. If
-				there's anything you'd like to see, please let us know!
+			<p>
+				To request a quiz, make sure to include your <b>unit</b>, and your <b>primary email</b>.
 			</p>
 			<Textarea rows={6} bind:value={feedback} placeholder="Type your answer here." />
 		</Dialog.Header>
