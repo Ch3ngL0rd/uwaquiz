@@ -42,9 +42,11 @@
 
 <Feedback {supabase} bind:show={showFeedback} on:openChange={(e) => (showFeedback = e.detail)} />
 <main class="flex flex-col justify-start items-start min-h-screen w-screen p-5 space-y-5">
-	<header class="flex items-start justify-start w-full gap-4">
+	<header class="flex items-start justify-between w-full gap-4">
 		<h3>UWA x Quizzes</h3>
-		<Button variant="link" on:click={() => (showFeedback = true)}>Give Feedback</Button>
+		<Button on:click={() => (showFeedback = true)} class="bg-blue-500 hover:bg-blue-600"
+			>Give Feedback</Button
+		>
 	</header>
 	<Alert.Root>
 		<Rocket class="h-4 w-4" />
