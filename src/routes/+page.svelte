@@ -51,14 +51,14 @@
 		>
 	</header>
 	<Alert.Root>
-		<Rocket class="h-4 w-4" />
 		<Alert.Title class="text-2xl">Welcome!</Alert.Title>
-		<Alert.Description class="text-lg">
-			If you'd like quizzes on a specific unit, email us at <Button
-				variant="link"
-				class="font-bold p-0 m-0 h-min text-lg"
-				href="mailto:help@uwaquiz.com">help@uwaquiz.com</Button
-			> and we'll see what we can do!
+		<Alert.Description class="text-sm">
+			We're currently making quizzes for <u>Systems Programming</u> (CITS2002),
+			<u>Risk Management and Financial Instruments</u>
+			(FIFA5520) & <u>Integrated Medical Systems 2</u> (IMED3112).
+			<br />
+			If you'd like quizzes on a specific unit, click <b>Request a Quiz</b> - don't forget to include
+			your contact details we can get in touch!
 		</Alert.Description>
 	</Alert.Root>
 	<h3 class="font-semibold">Demos</h3>
