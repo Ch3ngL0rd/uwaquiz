@@ -80,9 +80,9 @@
 					<div
 						class={`flex flex-col space-y-4 border p-5 shadow rounded-sm w-full
 		${
-			combine.attempt.quality === 'correct'
+			combine.attempt.feedback.quality === 'correct'
 				? 'border-green-500 bg-green-50'
-				: combine.attempt.quality === 'minor inaccuracy'
+				: combine.attempt.feedback.quality === 'minor inaccuracy'
 				? 'border-yellow-500 bg-yellow-50'
 				: 'border-red-500 bg-red-50'
 		}
