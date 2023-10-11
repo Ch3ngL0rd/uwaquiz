@@ -62,9 +62,9 @@
 							<!-- svelte-ignore a11y-label-has-associated-control -->
 							<label
 								class={`flex flex-row items-center justify-start space-x-3 space-y-0 rounded-md border p-5 shadow cursor-pointer hover:shadow-lg transition-all duration-200 ease-in-out 
-					${combine.attempt.answer === choice && choice === combine.question.answer ? 'bg-green-200' : ''} 
-					${combine.attempt.answer === choice && choice !== combine.question.answer ? 'bg-red-200' : ''}
-					${choice === combine.question.answer ? 'bg-green-200' : ''} border-gray-300
+					${combine.attempt.answer === choice && choice === combine.question.data.answer ? 'bg-green-200' : ''} 
+					${combine.attempt.answer === choice && choice !== combine.question.data.answer ? 'bg-red-200' : ''}
+					${choice === combine.question.data.answer ? 'bg-green-200' : ''} border-gray-300
 				`}
 							>
 								<Checkbox checked={combine.attempt.answer === choice} disabled={true} />
