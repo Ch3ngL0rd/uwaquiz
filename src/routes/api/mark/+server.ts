@@ -22,7 +22,7 @@ export async function POST({ request, locals: { supabase, getSession } }) {
             // Parse the arguments as json
             const mark = JSON.parse(response.choices[0].message.function_call.arguments)
             // Stores in supabase
-            const { data, error } = await supabase.from('attempts').insert({
+            const { data, error } = supabase.from('attempts').insert({
                 question_id: question_id,
                 user_id: session.user.id,
                 feedback: {
