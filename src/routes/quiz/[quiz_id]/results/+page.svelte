@@ -21,7 +21,7 @@
 	const mark = attempts.reduce((acc, attempt) => {
 		const question = questions.find((q) => q.id === attempt.question_id);
 		const quality = attempt.feedback.quality;
-		const mark = quality === 'correct' ? 1 : quality === 'minor' ? 0.5 : 0;
+		const mark = quality === 'correct' ? 1 : quality === 'minor inaccuracy' ? 0.5 : 0;
 		return acc + mark;
 	}, 0);
 
