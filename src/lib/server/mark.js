@@ -21,18 +21,18 @@ export async function mark_submission(question, model_answer, student_attempt) {
             "parameters": {
                 "type": "object",
                 "properties": {
-                    "quality": {
-                        "type": "string",
-                        "enum": ["correct", "minor inaccuracy", "incorrect"],
-                        "description": "This indicates the accuracy of the student's attempt. 'correct' suggests the answer aligns well with the expected response. 'minor inaccuracy' means the student's answer was generally correct but missed some minor points. 'incorrect' indicates that the answer was largely or wholly wrong."
-                    },
                     "reasoning": {
                         "type": "string",
                         "description": "A detailed analysis of the the attmempt, comparing it with the model answer. \
                         This section highlights the strengths or weaknesses of the student's attempt, illustrating where they met the criteria or where they diverged. \
-                        The reasoning should be concise, with a maximum of three sentences. The tone is objective and informative. \
+                        The reasoning should be concise, with a maximum of two sentences. The tone is objective and informative. \
                         It is written in second person, addressed to the student. \
                         Example: 'You correctly identified the main theme of the passage, but missed out on the supporting details.'"
+                    },
+                    "quality": {
+                        "type": "string",
+                        "enum": ["correct", "minor inaccuracy", "incorrect"],
+                        "description": "This indicates the accuracy of the student's attempt. 'correct' suggests the answer aligns well with the expected response. 'minor inaccuracy' means the student's answer was generally correct but missed some minor points. 'incorrect' indicates that the answer was largely or wholly wrong."
                     },
                     "tip_for_improvement": {
                         "type": "string",
